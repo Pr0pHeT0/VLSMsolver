@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<script type="text/javascript">
+    function getCloseNum(n) {
+        for (var i = 1; i < 100; i++) {
+            if (n <= Math.pow(2, i)) {
+                return Math.pow(2, i);
+            }
+        }
+    }
+    $(document).ready(function () {
+        var subnetNum = $("#subnetNum").val();
+        var hostsNum = Array(50, 30, 10, 50);
+        hostsNum.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(hostsNum);
+        var start = 1, tmp = 0;
+        for (var i = 0; i < hostsNum.length; i++) {
+            start = tmp + hostsNum[i];
+            tmp = getCloseNum(start);
+            console.log(tmp);
+        }
+    });
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>用户输入数据</h1>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">IP地址</span>
+                    <input id="ip" type="text" class="form-control" value="192.168.1.0" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">后缀</span>
+                    <input type="text" class="form-control" value="24" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">子网掩码</span>
+                    <input type="text" class="form-control" placeholder="255.255.255.0" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">子网数目</span>
+                    <input id="subnetNum" type="text" class="form-control" value="4" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px;">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary center-block">确定</button>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>各个子网主机个数</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            这里显示需要输入的子网个数。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary center-block">确定</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>划分子网</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            这里显示划分后的子网。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
